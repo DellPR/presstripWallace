@@ -257,6 +257,61 @@
 </head>
 <body>
 
+
+<!-- LANGUAGE PICKER -->
+<div id="lang-picker" style="
+  position:fixed;inset:0;z-index:10000;
+  background:#0076CE;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:32px;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+">
+  <div style="text-align:center;">
+    <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;color:rgba(255,255,255,0.7);text-transform:uppercase;margin-bottom:12px;">Dell Technologies</div>
+    <div style="font-size:28px;font-weight:700;color:#fff;margin-bottom:4px;">Austin Press Tour</div>
+    <div style="font-size:14px;color:rgba(255,255,255,0.75);">Selecione o idioma / Selecciona el idioma</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px;width:280px;">
+    <button onclick="window._setLang && window._setLang('pt')" style="
+      background:#fff;border:none;border-radius:14px;
+      padding:18px 24px;cursor:pointer;
+      display:flex;align-items:center;gap:14px;
+      font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+      transition:transform 0.1s;
+    " onmousedown="this.style.transform='scale(0.97)'" onmouseup="this.style.transform='scale(1)'" ontouchstart="this.style.transform='scale(0.97)'" ontouchend="this.style.transform='scale(1)'">
+      <svg width="52" height="36" viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg" style="border-radius:4px;flex-shrink:0;">
+  <rect width="52" height="36" fill="#009C3B"/>
+  <polygon points="26,4 48,18 26,32 4,18" fill="#FEDF00"/>
+  <circle cx="26" cy="18" r="8" fill="#002776"/>
+  <path d="M19,15.5 Q26,12 33,15.5" stroke="white" stroke-width="1.4" fill="none"/>
+</svg>
+      <div style="text-align:left;">
+        <div style="font-size:16px;font-weight:700;color:#1C1C1E;">Português</div>
+        <div style="font-size:12px;color:#8E8E93;">Brasil</div>
+      </div>
+    </button>
+    <button onclick="window._setLang && window._setLang('es')" style="
+      background:#fff;border:none;border-radius:14px;
+      padding:18px 24px;cursor:pointer;
+      display:flex;align-items:center;gap:14px;
+      font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+      transition:transform 0.1s;
+    " onmousedown="this.style.transform='scale(0.97)'" onmouseup="this.style.transform='scale(1)'" ontouchstart="this.style.transform='scale(0.97)'" ontouchend="this.style.transform='scale(1)'">
+      <svg width="52" height="36" viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg" style="border-radius:4px;flex-shrink:0;">
+  <rect width="52" height="36" fill="#006847"/>
+  <rect x="17.3" width="17.3" height="36" fill="#fff"/>
+  <rect x="34.6" width="17.4" height="36" fill="#CE1126"/>
+  <ellipse cx="26" cy="18" rx="4.5" ry="5.5" fill="#8B4513" opacity="0.7"/>
+  <ellipse cx="26" cy="18" rx="3" ry="4" fill="#228B22" opacity="0.8"/>
+</svg>
+      <div style="text-align:left;">
+        <div style="font-size:16px;font-weight:700;color:#1C1C1E;">Español</div>
+        <div style="font-size:12px;color:#8E8E93;">México</div>
+      </div>
+    </button>
+  </div>
+</div>
+
 <!-- SPLASH SCREEN -->
 <div id="splash" style="
   position:fixed; inset:0; z-index:9999;
@@ -294,16 +349,16 @@ window.addEventListener('load', function() {
   <div id="install-ios" style="display:none; align-items:center; gap:10px;">
     <div style="font-size:22px; flex-shrink:0;">&#8679;</div>
     <div style="flex:1;">
-      <div style="font-size:13px; font-weight:600; color:#fff;">Instalar como app</div>
-      <div style="font-size:11px; color:rgba(255,255,255,0.8); margin-top:1px;">Toque em <strong style="color:#fff;">Compartilhar</strong> e depois <strong style="color:#fff;">"Adicionar à Tela de Início"</strong></div>
+      <div class="inst-title" style="font-size:13px; font-weight:600; color:#fff;">Instalar como app</div>
+      <div class="inst-sub" style="font-size:11px; color:rgba(255,255,255,0.8); margin-top:1px;">Toque em <strong style="color:#fff;">Compartilhar</strong> e depois <strong style="color:#fff;">"Adicionar à Tela de Início"</strong></div>
     </div>
     <button onclick="document.getElementById('install-banner').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,0.7);font-size:20px;cursor:pointer;padding:0 4px;">&#10005;</button>
   </div>
   <div id="install-android" style="display:none; align-items:center; gap:10px;">
     <div style="font-size:20px; flex-shrink:0;">&#128247;</div>
     <div style="flex:1;">
-      <div style="font-size:13px; font-weight:600; color:#fff;">Instalar como app</div>
-      <div style="font-size:11px; color:rgba(255,255,255,0.8); margin-top:1px;">Adicione à tela inicial para acesso r&#225;pido</div>
+      <div class="inst-title" style="font-size:13px; font-weight:600; color:#fff;">Instalar como app</div>
+      <div class="inst-sub" style="font-size:11px; color:rgba(255,255,255,0.8); margin-top:1px;">Adicione à tela inicial para acesso rápido</div>
     </div>
     <button id="install-android-btn" style="background:#fff;border:none;color:#004A93;font-size:12px;font-weight:700;padding:7px 14px;border-radius:20px;cursor:pointer;">Instalar</button>
     <button onclick="document.getElementById('install-banner').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,0.7);font-size:20px;cursor:pointer;padding:0 4px;">&#10005;</button>
@@ -346,6 +401,20 @@ window.addEventListener('load', function() {
 </script>
 
 <div class="app">
+
+<button id="lang-toggle" onclick="window._showLangPicker && window._showLangPicker()" style="
+  position:fixed;bottom:16px;right:16px;z-index:500;
+  background:#0076CE;border:none;border-radius:20px;
+  padding:8px 14px;cursor:pointer;
+  display:none;align-items:center;gap:6px;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:12px;font-weight:600;color:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
+">
+  <span id="lang-flag" style="font-size:16px;">🇧🇷</span>
+  <span id="lang-label">PT</span>
+</button>
+
 
   <div class="topbar" id="topbar">
     <button class="topbar-back" id="backBtn" onclick="goBack()">&#8592;</button>
@@ -429,7 +498,7 @@ window.addEventListener('load', function() {
           <div class="ai-tag tag-meal">Almo&#231;o</div>
         </div>
         <div class="agenda-item" onclick="showPersonDetail('noskey')">
-          <div class="ai-time">14:00</div>
+          <div class="ai-time">16:00</div>
           <div class="ai-body"><div class="ai-desc">Encontro com Zach Noskey</div><div class="ai-loc">Head of Product, Commercial Notebooks</div></div>
           <div class="ai-tag tag-brief">Briefing &#8250;</div>
         </div>
@@ -563,8 +632,8 @@ window.addEventListener('load', function() {
 
       <!-- ALERT BANNER -->
       <div style="background:#FEF3E2;border-left:3px solid #F59E0B;margin:16px 16px 0;padding:12px 14px;border-radius:0 10px 10px 0;">
-        <div style="font-size:12px;font-weight:700;color:#7A4F0A;margin-bottom:3px;">&#9888; Aten&#231;&#227;o</div>
-        <div style="font-size:12px;color:#7A4F0A;line-height:1.5;">As informa&#231;&#245;es abaixo n&#227;o s&#227;o atualizadas ao vivo. Para dados mais precisos e atualizados, acesse o site ou app da companhia a&#233;rea usando o localizador abaixo.</div>
+        <div class="warn-title" style="font-size:12px;font-weight:700;color:#7A4F0A;margin-bottom:3px;">⚠ Atenção</div>
+        <div class="warn-text" style="font-size:12px;color:#7A4F0A;line-height:1.5;">As informações abaixo não são atualizadas ao vivo. Para dados mais precisos e atualizados, acesse o site ou app da companhia aérea usando o localizador abaixo.</div>
       </div>
 
       <!-- LOCALIZADOR BANNER -->
@@ -709,7 +778,7 @@ window.addEventListener('load', function() {
       <div class="sec-label">Traslado Aeroporto</div>
       <div class="card">
         <div class="card-inner" style="font-size:14px;color:#3C3C43;line-height:1.6;">
-          Traslados aeroporto&ndash;hotel&ndash;aeroporto via <strong>Uber</strong>, pela conta da ag&#234;ncia <strong>Ideal</strong>, conforme instru&#231;&#245;es enviadas por eles.
+          <span class="traslado-text">Traslados aeroporto–hotel–aeroporto via <strong>Uber</strong>, pela conta da agência <strong>Ideal</strong>, conforme instruções enviadas por eles.</span>
         </div>
         <div class="contact-row"><div><div class="contact-name">Mariana Mouret</div><div class="contact-role">Ag&#234;ncia Ideal</div></div><div style="text-align:right"><a href="https://wa.me/5511992123525" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;text-decoration:none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> +55 11 99212-3525</a></div></div>
         <div class="contact-row"><div><div class="contact-name">Bruna Manuelle</div><div class="contact-role">Ag&#234;ncia Ideal</div></div><div style="text-align:right"><a href="https://wa.me/5511989320737" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;text-decoration:none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> +55 11 98932-0737</a></div></div>
@@ -1107,6 +1176,562 @@ function updateClocks() {
 }
 updateClocks();
 setInterval(updateClocks, 1000);
+
+
+</script>
+
+<script>
+const LANG = {
+  pt: {
+    // Nav
+    nav_agenda: 'Agenda', nav_tours: 'Tours', nav_voos: 'Voos', nav_portavozes: 'Porta-vozes', nav_hotel: 'Hotel',
+    // Topbar
+    topbar_title: 'Austin Press Tour',
+    // Hero
+    hero_tag: 'Press Tour — Guia oficial',
+    hero_city: 'Austin, Texas',
+    hero_date: '14 – 17 de Abril de 2026',
+    // Agenda days
+    day1_name: 'Terça-feira', day1_date: '14 de Abril — Chegada & Boas-vindas',
+    day2_name: 'Quarta-feira', day2_date: '15 de Abril',
+    day3_name: 'Quinta-feira', day3_date: '16 de Abril',
+    day4_name: 'Sexta-feira', day4_date: '17 de Abril — Retorno',
+    // Tags
+    tag_tour: 'Tour ›', tag_meal_lunch: 'Almoço ›', tag_meal_dinner: 'Jantar ›', tag_brief: 'Briefing ›', tag_hotel: 'Hotel ›', tag_hotel2: 'Info ›', tag_departure: 'Partida',
+    // Agenda items
+    ai_checkin: 'Check-in no hotel', ai_checkin_loc: 'Hyatt Place Austin The Domain',
+    ai_dinner1: 'Welcome Dinner', ai_dinner1_loc: 'Sixty Vines — 3401 Esperanza Crossing',
+    ai_tacc: 'Tour TACC Data Center', ai_tacc_loc: '10505 Exploration Way, Austin',
+    ai_ebc_tour: 'Tour Executive Briefing Center', ai_ebc_tour_loc: '2302 Greenlawn Blvd, Round Rock',
+    ai_ebc_lunch: 'Almoço no Executive Briefing Center',
+    ai_zach: 'Encontro com Zach Noskey', ai_zach_loc: 'Head of Product, Commercial Notebooks',
+    ai_drew: 'Encontro com Drew Schulke', ai_drew_loc: 'VP Product Management, Primary Storage',
+    ai_aa: 'Encontro com Armando Acosta & David Schmidt', ai_aa_loc: 'AI Servers & PowerEdge',
+    ai_alex: 'Encontro com Alex Tyltin', ai_alex_loc: 'Workstations & AI Strategy',
+    ai_saltlick: 'Jantar — The Salt Lick', ai_saltlick_loc: '3350 E Palm Valley Blvd, Round Rock',
+    ai_aisc: 'Tour AI Solutions Center', ai_aisc_loc: '701 E Parmer Ln — Parmer South 2',
+    ai_alienware: 'Tour Alienware Experience', ai_alienware_loc: '701 E Parmer Ln — Parmer South 4',
+    ai_rugged: 'Tour Rugged Lab', ai_rugged_loc: '701 E Parmer Ln — Parmer South 4',
+    ai_north: 'Encontro com Travis North', ai_north_loc: 'Thermal Cooling Expert',
+    ai_acoustic: 'Visita Acoustic Chamber', ai_acoustic_loc: '701 E Parmer Ln — Parmer South 4',
+    ai_haywire: 'Almoço — Haywire Domain', ai_haywire_loc: '11501 Rock Rose Ave, Austin',
+    ai_quince: 'Jantar — Quince Lakehouse', ai_quince_loc: '3825 Lake Austin Blvd #201',
+    ai_checkout: 'Check-out e retorno ao aeroporto', ai_checkout_loc: 'Traslado via Uber — conta Ideal',
+    // Tours section
+    tours_label1: 'Quarta-feira, 15/04', tours_label2: 'Quinta-feira, 16/04',
+    badge_photo_yes: '📸 Fotos: Sim', badge_photo_lim: '📸 Fotos: c/ limitações',
+    badge_photo_no: '🚫 Fotos: Não',
+    // Flights
+    sec_ida: 'Ida — 13 de Abril', sec_volta: 'Volta — 17 de Abril', sec_traslado: 'Traslado Aeroporto',
+    alert_title: 'Atenção',
+    alert_text: 'As informações abaixo não são atualizadas ao vivo. Para dados mais precisos e atualizados, acesse o site ou app da companhia aérea usando o localizador abaixo.',
+    traslado_text: 'Traslados aeroporto–hotel–aeroporto via <strong>Uber</strong>, pela conta da agência <strong>Ideal</strong>, conforme instruções enviadas por eles.',
+    // Portavozes
+    sec_portavozes: 'Porta-vozes Dell', sec_coord: 'Coordenação in loco',
+    // Hotel
+    sec_hospedagem: 'Hospedagem', sec_traslado2: 'Traslado', sec_horario: 'Horário local',
+    checkin_label: 'Check-in', checkin_val: 'Fim da tarde', checkin_date: 'Terça-feira, 14 de Abril',
+    checkout_label: 'Check-out', checkout_val: 'Pela manhã', checkout_date: 'Sexta-feira, 17 de Abril',
+    fuso_label: 'Fuso Austin', fuso_val: 'CDT', fuso_sub: 'UTC − 5',
+    diff_label: 'Diferença', diff_val: '−2h', diff_sub: 'vs Brasília',
+    // Clock
+    clock_austin: 'Austin CDT', clock_brasil: 'Brasil BRT',
+    days: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
+    months: ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],
+    // Detail view
+    detail_localizacao: 'Localização', detail_descricao: 'Descrição do tour', detail_maps: '📍 Abrir no Maps ›',
+    detail_sobre: 'Sobre o restaurante', detail_destaques: 'Destaques', detail_site: '🌐 Ver site oficial ›',
+    detail_bio: 'Biografia', detail_linkedin: 'Ver perfil no LinkedIn',
+    voo_ida: 'Saída', voo_chegada: 'Chegada',
+    // Install banner
+    install_title: 'Instalar como app',
+    install_ios_sub: 'Toque em <strong style="color:#fff;">Compartilhar</strong> e depois <strong style="color:#fff;">"Adicionar à Tela de Início"</strong>',
+    install_android_sub: 'Adicione à tela inicial para acesso rápido',
+    install_btn: 'Instalar',
+    // Warn
+    warn_audio: 'Ambiente muito barulhento — proteção auditiva obrigatória. Fotografia é restrita neste tour.',
+  },
+  es: {
+    nav_agenda: 'Agenda', nav_tours: 'Tours', nav_voos: 'Vuelos', nav_portavozes: 'Voceros', nav_hotel: 'Hotel',
+    topbar_title: 'Austin Press Tour',
+    hero_tag: 'Press Tour — Guía oficial',
+    hero_city: 'Austin, Texas',
+    hero_date: '14 – 17 de Abril de 2026',
+    day1_name: 'Martes', day1_date: '14 de Abril — Llegada y Bienvenida',
+    day2_name: 'Miércoles', day2_date: '15 de Abril',
+    day3_name: 'Jueves', day3_date: '16 de Abril',
+    day4_name: 'Viernes', day4_date: '17 de Abril — Retorno',
+    tag_tour: 'Tour ›', tag_meal_lunch: 'Almuerzo ›', tag_meal_dinner: 'Cena ›', tag_brief: 'Briefing ›', tag_hotel: 'Hotel ›', tag_hotel2: 'Info ›', tag_departure: 'Salida',
+    ai_checkin: 'Check-in en el hotel', ai_checkin_loc: 'Hyatt Place Austin The Domain',
+    ai_dinner1: 'Cena de Bienvenida', ai_dinner1_loc: 'Sixty Vines — 3401 Esperanza Crossing',
+    ai_tacc: 'Tour TACC Data Center', ai_tacc_loc: '10505 Exploration Way, Austin',
+    ai_ebc_tour: 'Tour Executive Briefing Center', ai_ebc_tour_loc: '2302 Greenlawn Blvd, Round Rock',
+    ai_ebc_lunch: 'Almuerzo en el Executive Briefing Center',
+    ai_zach: 'Reunión con Zach Noskey', ai_zach_loc: 'Head of Product, Commercial Notebooks',
+    ai_drew: 'Reunión con Drew Schulke', ai_drew_loc: 'VP Product Management, Primary Storage',
+    ai_aa: 'Reunión con Armando Acosta & David Schmidt', ai_aa_loc: 'AI Servers & PowerEdge',
+    ai_alex: 'Reunión con Alex Tyltin', ai_alex_loc: 'Workstations & AI Strategy',
+    ai_saltlick: 'Cena — The Salt Lick', ai_saltlick_loc: '3350 E Palm Valley Blvd, Round Rock',
+    ai_aisc: 'Tour AI Solutions Center', ai_aisc_loc: '701 E Parmer Ln — Parmer South 2',
+    ai_alienware: 'Tour Alienware Experience', ai_alienware_loc: '701 E Parmer Ln — Parmer South 4',
+    ai_rugged: 'Tour Rugged Lab', ai_rugged_loc: '701 E Parmer Ln — Parmer South 4',
+    ai_north: 'Reunión con Travis North', ai_north_loc: 'Experto en Enfriamiento Térmico',
+    ai_acoustic: 'Visita Acoustic Chamber', ai_acoustic_loc: '701 E Parmer Ln — Parmer South 4',
+    ai_haywire: 'Almuerzo — Haywire Domain', ai_haywire_loc: '11501 Rock Rose Ave, Austin',
+    ai_quince: 'Cena — Quince Lakehouse', ai_quince_loc: '3825 Lake Austin Blvd #201',
+    ai_checkout: 'Check-out y regreso al aeropuerto', ai_checkout_loc: 'Traslado vía Uber — cuenta Ideal',
+    tours_label1: 'Miércoles, 15/04', tours_label2: 'Jueves, 16/04',
+    badge_photo_yes: '📸 Fotos: Sí', badge_photo_lim: '📸 Fotos: con limitaciones',
+    badge_photo_no: '🚫 Fotos: No',
+    sec_ida: 'Ida — 13 de Abril', sec_volta: 'Vuelta — 17 de Abril', sec_traslado: 'Traslado Aeropuerto',
+    alert_title: 'Atención',
+    alert_text: 'La información a continuación no se actualiza en tiempo real. Para datos más precisos, accede al sitio o app de la aerolínea usando el localizador abajo.',
+    traslado_text: 'Traslados aeropuerto–hotel–aeropuerto vía <strong>Uber</strong>, a través de la cuenta de la agencia <strong>Ideal</strong>, según las instrucciones enviadas por ellos.',
+    sec_portavozes: 'Voceros Dell', sec_coord: 'Coordinación in situ',
+    sec_hospedagem: 'Hospedaje', sec_traslado2: 'Traslado', sec_horario: 'Hora local',
+    checkin_label: 'Check-in', checkin_val: 'Tarde', checkin_date: 'Martes, 14 de Abril',
+    checkout_label: 'Check-out', checkout_val: 'Por la mañana', checkout_date: 'Viernes, 17 de Abril',
+    fuso_label: 'Zona Austin', fuso_val: 'CDT', fuso_sub: 'UTC − 5',
+    diff_label: 'Diferencia', diff_val: '−1h', diff_sub: 'vs Ciudad de México',
+    clock_austin: 'Austin CDT', clock_brasil: 'México CDT',
+    days: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+    months: ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],
+    detail_localizacao: 'Ubicación', detail_descricao: 'Descripción del tour', detail_maps: '📍 Abrir en Maps ›',
+    detail_sobre: 'Sobre el restaurante', detail_destaques: 'Destacados', detail_site: '🌐 Ver sitio oficial ›',
+    detail_bio: 'Biografía', detail_linkedin: 'Ver perfil en LinkedIn',
+    voo_ida: 'Salida', voo_chegada: 'Llegada',
+    install_title: 'Instalar como app',
+    install_ios_sub: 'Toca <strong style="color:#fff;">Compartir</strong> y luego <strong style="color:#fff;">"Agregar a pantalla de inicio"</strong>',
+    install_android_sub: 'Agrega a la pantalla de inicio para acceso rápido',
+    install_btn: 'Instalar',
+    warn_audio: 'Ambiente muy ruidoso — protección auditiva obligatoria. La fotografía está restringida en este tour.',
+  }
+};
+
+// Spanish translations for tours, restaurants, people
+const TOURS_ES = {
+  tacc: {
+    title:'Texas Advanced Computing Center', short:'TACC',
+    date:'Miércoles, 15/04 — 09:00', fotos:'Sí', fotosOk:true,
+    loc:'10505 Exploration Way, Austin TX 78758\nCampus J.J. Pickle — Edificio ACB',
+    maps:'https://maps.app.goo.gl/xRvHqLqGhm7Q2RYNA',
+    body:[
+      {t:'text',v:'El Texas Advanced Computing Center es uno de los clientes más estratégicos de Dell y opera algunos de los recursos computacionales de alto rendimiento más poderosos del mundo. Su misión es hacer posibles descubrimientos científicos y sociales mediante tecnología de computación avanzada.'},
+      {t:'text',v:'Dell desarrolló e implementó múltiples sistemas HPC para TACC. El principal — con el nombre en clave Frontera — es la supercomputadora universitaria más rápida del mundo, permitiendo a investigadores de todo el país realizar estudios ambiciosos en todos los campos de la ciencia.'},
+    ]
+  },
+  ebc: {
+    title:'Dell Executive Briefing Center', short:'EBC',
+    date:'Miércoles, 15/04 — 11:30', fotos:'Sí (con limitaciones)', fotosOk:true,
+    loc:'2302 Greenlawn Boulevard, Building 3\nRound Rock, TX 78682',
+    maps:'https://maps.app.goo.gl/nqeNbG3uDpXL2VNQA',
+    body:[
+      {t:'text',v:'Experiencia estratégica y personalizada, diseñada para ayudar a líderes empresariales a explorar cómo la tecnología puede apoyar sus prioridades más críticas.'},
+      {t:'text',v:'Más que una presentación — es un foro colaborativo donde las estrategias se alinean, las ideas se co-crean y se define un camino claro para impulsar resultados empresariales significativos.'},
+    ]
+  },
+  aisc: {
+    title:'AI Solutions Center', short:'AI Center',
+    date:'Jueves, 16/04 — 09:00', fotos:'No — fotografía restringida', fotosOk:false,
+    loc:'701 E Parmer Ln, Austin TX 78754\nParmer South 2',
+    maps:'https://maps.app.goo.gl/Ld3P3L8jfWkczGDr8',
+    body:[
+      {t:'text',v:'Vista práctica de la infraestructura de servidores de próxima generación, comenzando con una Sala de Exhibición que destaca componentes de 17.ª generación.'},
+      {t:'text',v:'El laboratorio principal tiene aproximadamente 50 racks de servidores combinando configuraciones enfriadas por líquido y estándar, con hardware NVIDIA, AMD, Intel y Dell Technologies en un entorno en vivo.'},
+      {t:'warn',v:'Ambiente muy ruidoso — protección auditiva obligatoria. La fotografía está restringida en este tour.'},
+    ]
+  },
+  alienware: {
+    title:'Alienware Experience Tour', short:'Alienware',
+    date:'Jueves, 16/04 — 09:30', fotos:'Sí', fotosOk:true,
+    loc:'701 E Parmer Ln, Austin TX 78755\nParmer South 4',
+    maps:'https://maps.app.goo.gl/Ld3P3L8jfWkczGDr8',
+    body:[
+      {t:'text',v:'Espacio totalmente inmersivo para contar historias, diseñado para dar vida al pasado, presente y futuro de la marca Alienware — más que una sala de exhibición.'},
+      {t:'sublabel',v:'Qué veremos'},
+      {t:'bullet',v:'Sistemas Alienware actuales e históricos — evolución de diseño y rendimiento a lo largo de +20 años'},
+      {t:'bullet',v:'Estaciones de benchmarking competitivo — pruebas lado a lado contra competidores'},
+      {t:'bullet',v:'Componentes internos expuestos: GPUs, soluciones de enfriamiento, ventiladores, arquitectura térmica'},
+      {t:'bullet',v:'Impresora 3D funcional utilizada en prototipado rápido y pruebas de componentes'},
+      {t:'bullet',v:'Colección curada de sistemas históricos de Alienware'},
+    ]
+  },
+  rugged: {
+    title:'Rugged Lab Tour', short:'Rugged Lab',
+    date:'Jueves, 16/04 — 10:30', fotos:'Sí', fotosOk:true,
+    loc:'701 E Parmer Ln, Austin TX 78755\nParmer South 4',
+    maps:'https://maps.app.goo.gl/Ld3P3L8jfWkczGDr8',
+    body:[
+      {t:'text',v:'Donde las laptops más resistentes de Dell son llevadas intencionalmente al límite. Diseñado para validar el rendimiento en las condiciones más severas del mundo.'},
+      {t:'text',v:'Los visitantes ven cómo los sistemas soportan caídas, presiones extremas, cambios rápidos de temperatura, exposición a alta presión de agua e inmersión total.'},
+      {t:'text',v:'Cada escenario refleja casos de uso reales: seguridad pública, defensa, operaciones industriales y de campo. Aquí, la durabilidad está diseñada — no es una coincidencia.'},
+    ]
+  },
+  acoustic: {
+    title:'Acoustic Chamber', short:'Acoustic',
+    date:'Jueves, 16/04 — 11:30', fotos:'Sí', fotosOk:true,
+    loc:'701 E Parmer Ln, Austin TX 78757\nParmer South 4',
+    maps:'https://maps.app.goo.gl/Ld3P3L8jfWkczGDr8',
+    body:[
+      {t:'text',v:'Laboratorio totalmente aislado donde el rendimiento se mide no solo en potencia, sino en sonido. Diseñado para eliminar vibraciones externas y permitir mediciones acústicas precisas de los ventiladores.'},
+      {t:'text',v:'Incorpora comentarios de clientes corporativos, incluidos los de Boeing, donde el rendimiento acústico es crítico para las operaciones.'},
+      {t:'text',v:'La visita incluye el Wireless Lab — donde los sistemas se prueban para garantizar conectividad confiable en entornos exigentes.'},
+    ]
+  }
+};
+
+const RESTAURANTS_ES = {
+  sixtyvines: {
+    name:'Sixty Vines', emoji:'🍷', tag:'Wine Bar & American',
+    addr:'3401 Esperanza Crossing, Austin TX 78758',
+    maps:'https://maps.google.com/maps?q=Sixty+Vines,+3401+Esperanza+Crossing,+Austin,+TX+78758',
+    website:'https://www.sixtyvines.com/locations/austin-tx',
+    desc:'Conocido como el restaurante de los amantes del vino, Sixty Vines ofrece una experiencia culinaria de inspiración global con ingredientes de temporada. El gran atractivo es su innovador programa de vinos en grifo: 60 etiquetas servidas directamente del barril.',
+    highlights:['60 vinos en grifo, sostenibles y de temporada, de regiones vitivinícolas de todo el mundo','Menú de platos para compartir: pizzas artesanales, pastas, tablas de charcutería','Ambiente de más de 900m² con área interior, patio y espacios privados','Happy hour con descuentos en vinos y cócteles especiales'],
+    when:'Martes, 14/04 — 19:00 — Cena de Bienvenida'
+  },
+  saltlick: {
+    name:'The Salt Lick BBQ', emoji:'🔥', tag:'Texas BBQ',
+    addr:'3350 E Palm Valley Blvd, Round Rock TX 78665',
+    maps:'https://maps.google.com/maps?q=Salt+Lick+BBQ,+3350+E+Palm+Valley+Blvd,+Round+Rock,+TX+78665',
+    website:'https://www.saltlickbbq.com/round-rock/',
+    desc:'Una legendaria institución del asado texano desde 1967. Las recetas de la familia Roberts tienen raíces en las caravanas del siglo XIX. La sede de Round Rock está junto al Dell Diamond, con patio sombreado por robles centenarios.',
+    highlights:['Brisket ahumado lentamente, el plato estrella del menú','Family Style todo lo que puedas comer: brisket, salchicha, costillas de cerdo','Patio con robles centenarios y ambiente rústico texano','Bar completo con margaritas y cerveza artesanal'],
+    when:'Miércoles, 15/04 — 19:00 — Cena'
+  },
+  haywire: {
+    name:'Haywire Domain', emoji:'🤠', tag:'Texas Farm-to-Fork',
+    addr:'11501 Rock Rose Ave, Austin TX 78758',
+    maps:'https://maps.google.com/maps?q=Haywire,+11501+Rock+Rose+Ave,+Austin,+TX+78758',
+    website:'https://www.haywirerestaurant.com/locations/domain-northside-austin',
+    desc:'Restaurante de inspiración texana con más de 1,200m² distribuidos en múltiples niveles. Menú farm-to-fork con ingredientes locales de cada rincón de Texas, una bodega de vinos premiada y una de las mayores colecciones de whisky de la ciudad.',
+    highlights:['Wagyu Tomahawk de 930g y Costilla ahumada','Elk Tacos y Queso Blanco, especialidades Tex-Mex del chef Zac Allred','Longhorn Lounge con techo en barril y bar de whisky premium','Trailer estilo Shasta en el patio del 2.° piso para eventos privados'],
+    when:'Jueves, 16/04 — 12:15 — Almuerzo'
+  },
+  quince: {
+    name:'Quince Lakehouse', emoji:'🌊', tag:'Upscale Internacional',
+    addr:'3825 Lake Austin Blvd #201, Austin TX 78703',
+    maps:'https://maps.google.com/maps?q=Quince+Lakehouse,+3825+Lake+Austin+Blvd,+Austin,+TX+78703',
+    website:'https://www.quincesma.com/atx/',
+    desc:'Elegido el restaurante con rooftop n.° 1 del mundo en 2020, Quince llegó a Austin con vistas privilegiadas al Lago Austin. El menú es una fusión de influencias internacionales — Nueva Orleans, Lima, Nueva York y Ciudad de México.',
+    highlights:['Vista panorámica del Lago Austin desde el patio cubierto','Atún tostado, Tempura de camarón y Pulpo a la parrilla como especialidades','Ambiente casual con música en vivo y bar de cócteles','Cadena fundada en San Miguel de Allende, México, en 2016'],
+    when:'Jueves, 16/04 — 19:00 — Cena'
+  },
+  ebc_almoco: {
+    name:'Almuerzo en el EBC', emoji:'🏛️', tag:'Dell Executive Briefing Center',
+    addr:'2302 Greenlawn Blvd, Building 3, Round Rock TX 78682',
+    maps:'https://maps.app.goo.gl/nqeNbG3uDpXL2VNQA',
+    website:null,
+    desc:'El almuerzo se servirá dentro del Dell Executive Briefing Center, brindando una oportunidad informal de networking con el equipo Dell antes de las reuniones de la tarde.',
+    highlights:['Ambiente interno del EBC — campus Dell Round Rock','Oportunidad de interacción con el equipo Dell','Antecede las reuniones con voceros a las 13:30'],
+    when:'Miércoles, 15/04 — 12:00'
+  }
+};
+
+const PEOPLE_ES = {
+  schulke: {
+    img:SCHULKE_IMG, initials:'DS', name:'Drew Schulke',
+    linkedin:'https://www.linkedin.com/in/drewschulke/',
+    role:'Vicepresidente de Gestión de Producto, Primary Storage — Dell Technologies',
+    bio:[
+      'Drew es responsable del portafolio de Primary Storage de Dell Technologies, que abarca arreglos de almacenamiento purpose-built (PowerMax, PowerStore, PowerVault) y almacenamiento definido por software (PowerFlex).',
+      'Con más de 25 años en Dell, ha trabajado en desarrollo de producto, operaciones, enterprise services, clientes hyper-scale y networking.',
+      'Máster de la Johnson Graduate School of Management — Cornell University, e ingeniero de la University of Arizona.'
+    ]
+  },
+  north: {
+    img:NORTH_IMG, initials:'TN', name:'Travis North',
+    linkedin:'https://www.linkedin.com/in/travis-north-8b12415/',
+    role:'Experto en Enfriamiento Térmico — Dell Technologies',
+    bio:[
+      'Especialista en soluciones térmicas y de enfriamiento para sistemas de alto rendimiento de Dell.',
+      'Liderará la visita a la Acoustic Chamber y estará disponible para discusiones técnicas sobre ingeniería térmica.'
+    ]
+  },
+  noskey: {
+    img:NOSKEY_IMG, initials:'ZN', name:'Zach Noskey',
+    linkedin:'https://www.linkedin.com/in/zachnoskey2813308004/',
+    role:'Head of Product, Commercial Notebooks & Education — Dell Technologies',
+    bio:[
+      'Lidera el equipo que traduce futuras innovaciones en silicio y plataforma al roadmap plurianual de PCs de Dell.',
+      'Anteriormente fue Director de Gestión de Producto del Dell Pro Notebook, con foco en definición de portafolio y lanzamientos de producto.',
+      'Máster en Ingeniería Industrial y de Operaciones por la Rackham Graduate School — University of Michigan.'
+    ]
+  },
+  acosta_schmidt: {
+    img:ACOSTA_IMG, img2:DAVIDSCHMIDT_IMG, initials:'A+D',
+    name:'Armando Acosta & David Schmidt',
+    linkedin:'https://www.linkedin.com/in/armando-acosta-078a311/',
+    linkedin2:'https://www.linkedin.com/in/davidtschmidt/',
+    role:'AI Servers & PowerEdge Product Management — Dell Technologies',
+    bio:[
+      'Armando Acosta es AI Product Planner responsable de los servidores de IA de Dell. Especialista en arquitectura de servidores y aceleradores, Machine & Deep Learning y ecosistema de data analytics. Lideró el desarrollo de portafolios como el PowerEdge XE9680 y XE9685L.',
+      'David Schmidt es Senior Director de Gestión de Producto para los servidores PowerEdge de Dell, con 25 años de experiencia en hardware y software enterprise. Responsable de la estrategia, roadmap y definición de producto de toda la línea PowerEdge.',
+      'Juntos, cubren el espectro completo de infraestructura de servidores Dell para IA: de la arquitectura de producto al impacto para el cliente.'
+    ]
+  },
+  lawler: {
+    img:LAWLER_IMG, initials:'LL', name:'Alex Tyltin',
+    linkedin:'https://www.linkedin.com/in/alextyltin/',
+    role:'Workstations Lead & AI Strategy — Dell Technologies',
+    bio:[
+      'Alex es líder de estrategia de IA para las Precision Workstations de Dell, con más de una década de experiencia en soluciones enterprise de alto impacto.',
+      'Lideró el lanzamiento de las workstations Dell Pro Max con GB10 y GB300 — las primeras desktops del mundo con el superchip NVIDIA Grace Blackwell Ultra. El Dell Pro Max con GB300 entrega hasta 20 petaFLOPS de rendimiento FP4 y 748 GB de memoria unificada.',
+      'Estas máquinas son utilizadas por científicos de datos, ingenieros de IA e investigadores para entrenar modelos localmente con seguridad y sin latencia de nube.'
+    ]
+  }
+};
+
+var currentLang = null;
+
+window._setLang = function(lang) {
+  currentLang = lang;
+  localStorage.setItem('presstrip_lang', lang);
+  document.getElementById('lang-picker').style.display = 'none';
+  var toggle = document.getElementById('lang-toggle');
+  toggle.style.display = 'flex';
+  document.getElementById('lang-flag').textContent = lang === 'pt' ? '🇧🇷' : '🇲🇽';
+  document.getElementById('lang-label').textContent = lang === 'pt' ? 'PT' : 'ES';
+  window._applyLang(lang);
+}
+
+window._showLangPicker = function() {
+  document.getElementById('lang-picker').style.display = 'flex';
+}
+
+window._t = function(key) {
+  return LANG[currentLang || 'pt'][key] || LANG['pt'][key] || key;
+}
+
+window._applyLang = function(lang) {
+  var L = LANG[lang];
+
+  // Topbar title (only if not in detail view)
+  if(document.getElementById('homeView').style.display !== 'none') {
+    document.getElementById('topbarTitle').textContent = L.topbar_title;
+  }
+
+  // Nav labels
+  var navBtns = document.querySelectorAll('.nav-btn span');
+  var navKeys = ['nav_agenda','nav_tours','nav_voos','nav_portavozes','nav_hotel'];
+  navBtns.forEach(function(el, i) { if(navKeys[i]) el.textContent = L[navKeys[i]]; });
+
+  // Hero
+  document.querySelector('.hero-tag').textContent = L.hero_tag;
+  document.querySelector('.hero-city').textContent = L.hero_city;
+  document.querySelector('.hero-date').textContent = L.hero_date;
+
+  // Agenda days
+  var dayNames = document.querySelectorAll('.day-name');
+  var dayDates = document.querySelectorAll('.day-date');
+  var dn = ['day1_name','day2_name','day3_name','day4_name'];
+  var dd = ['day1_date','day2_date','day3_date','day4_date'];
+  dayNames.forEach(function(el,i){ if(dn[i]) el.textContent = L[dn[i]]; });
+  dayDates.forEach(function(el,i){ if(dd[i]) el.innerHTML = L[dd[i]]; });
+
+  // Agenda items — rebuild using data keys
+  var items = document.querySelectorAll('.agenda-item');
+  var agenda_map = [
+    // Day 1
+    {desc:'ai_checkin', loc:'ai_checkin_loc', tag:'tag_hotel'},
+    {desc:'ai_dinner1', loc:'ai_dinner1_loc', tag:'tag_meal_dinner'},
+    // Day 2
+    {desc:'ai_tacc', loc:'ai_tacc_loc', tag:'tag_tour'},
+    {desc:'ai_ebc_tour', loc:'ai_ebc_tour_loc', tag:'tag_tour'},
+    {desc:'ai_ebc_lunch', loc:null, tag:'tag_meal_lunch'},
+    {desc:'ai_zach', loc:'ai_zach_loc', tag:'tag_brief'},
+    {desc:'ai_drew', loc:'ai_drew_loc', tag:'tag_brief'},
+    {desc:'ai_aa', loc:'ai_aa_loc', tag:'tag_brief'},
+    {desc:'ai_alex', loc:'ai_alex_loc', tag:'tag_brief'},
+    {desc:'ai_saltlick', loc:'ai_saltlick_loc', tag:'tag_meal_dinner'},
+    // Day 3
+    {desc:'ai_aisc', loc:'ai_aisc_loc', tag:'tag_tour'},
+    {desc:'ai_alienware', loc:'ai_alienware_loc', tag:'tag_tour'},
+    {desc:'ai_rugged', loc:'ai_rugged_loc', tag:'tag_tour'},
+    {desc:'ai_north', loc:'ai_north_loc', tag:'tag_brief'},
+    {desc:'ai_acoustic', loc:'ai_acoustic_loc', tag:'tag_tour'},
+    {desc:'ai_haywire', loc:'ai_haywire_loc', tag:'tag_meal_lunch'},
+    {desc:'ai_quince', loc:'ai_quince_loc', tag:'tag_meal_dinner'},
+    // Day 4
+    {desc:'ai_checkout', loc:'ai_checkout_loc', tag:'tag_hotel'},
+  ];
+  items.forEach(function(item, i) {
+    if(!agenda_map[i]) return;
+    var m = agenda_map[i];
+    var descEl = item.querySelector('.ai-desc');
+    var locEl = item.querySelector('.ai-loc');
+    var tagEl = item.querySelector('.ai-tag');
+    if(descEl && L[m.desc]) descEl.textContent = L[m.desc];
+    if(locEl && m.loc && L[m.loc]) locEl.textContent = L[m.loc];
+    if(tagEl && L[m.tag]) tagEl.textContent = L[m.tag];
+  });
+
+  // Tours section labels
+  var secLabels = document.querySelectorAll('#sec-tours .sec-label');
+  if(secLabels[0]) secLabels[0].textContent = L.tours_label1;
+  if(secLabels[1]) secLabels[1].textContent = L.tours_label2;
+
+  // Tour badges in list
+  var tourBadges = document.querySelectorAll('.tc-badge');
+  // photo badges: yes, lim, no, yes, yes, yes (in order)
+  var photoBadgeMap = [L.badge_photo_yes, L.badge_photo_lim, L.badge_photo_no, L.badge_photo_yes, L.badge_photo_yes, L.badge_photo_yes];
+  document.querySelectorAll('.badge-photo').forEach(function(el,i){ el.textContent = photoBadgeMap[i] || L.badge_photo_yes; });
+  document.querySelectorAll('.badge-nophoto').forEach(function(el){ el.textContent = L.badge_photo_no; });
+
+  // Flights section labels
+  var vooLabels = document.querySelectorAll('#sec-voos .sec-label');
+  if(vooLabels[0]) vooLabels[0].textContent = L.sec_ida;
+  if(vooLabels[1]) vooLabels[1].textContent = L.sec_volta;
+  if(vooLabels[2]) vooLabels[2].textContent = L.sec_traslado;
+
+  // Alert banner
+  var alertTitle = document.querySelector('#sec-voos .warn-title');
+  var alertText = document.querySelector('#sec-voos .warn-text');
+  if(alertTitle) alertTitle.textContent = L.alert_title;
+  if(alertText) alertText.innerHTML = L.alert_text;
+
+  // Traslado text
+  var traslText = document.querySelector('#sec-voos .traslado-text');
+  if(traslText) traslText.innerHTML = L.traslado_text;
+
+  // Portavozes section label
+  var pvLabels = document.querySelectorAll('#sec-portavozes .sec-label');
+  if(pvLabels[0]) pvLabels[0].textContent = L.sec_portavozes;
+  if(pvLabels[1]) pvLabels[1].textContent = L.sec_coord;
+
+  // Hotel section
+  var hotelLabels = document.querySelectorAll('#sec-hotel .sec-label');
+  if(hotelLabels[0]) hotelLabels[0].textContent = L.sec_hospedagem;
+  if(hotelLabels[1]) hotelLabels[1].textContent = L.sec_traslado2;
+  if(hotelLabels[2]) hotelLabels[2].textContent = L.sec_horario;
+
+  // Hotel checkin/checkout
+  var contactNames = document.querySelectorAll('#sec-hotel .contact-name');
+  var contactVals = document.querySelectorAll('#sec-hotel .contact-val');
+  var contactRoles = document.querySelectorAll('#sec-hotel .contact-role');
+  if(contactNames[0]) contactNames[0].textContent = L.checkin_label;
+  if(contactNames[1]) contactNames[1].textContent = L.checkout_label;
+  if(contactVals[0]) contactVals[0].textContent = L.checkin_val;
+  if(contactVals[1]) contactVals[1].textContent = L.checkout_val;
+  if(contactRoles[0]) contactRoles[0].textContent = L.checkin_date;
+  if(contactRoles[1]) contactRoles[1].textContent = L.checkout_date;
+
+  // Time tiles
+  var tileLbls = document.querySelectorAll('.info-tile-label');
+  var tileVals = document.querySelectorAll('.info-tile-val');
+  if(tileLbls[0]) tileLbls[0].textContent = L.fuso_label;
+  if(tileLbls[1]) tileLbls[1].textContent = L.diff_label;
+
+  // Clock labels
+  var clockAustin = document.getElementById('clock-austin');
+  var clockBrasil = document.getElementById('clock-brasil');
+  if(clockAustin && clockAustin.previousElementSibling) clockAustin.previousElementSibling.textContent = L.clock_austin;
+  if(clockBrasil && clockBrasil.previousElementSibling) clockBrasil.previousElementSibling.textContent = L.clock_brasil;
+
+  // Clock timezone for Brasil/Mexico label
+  window._langClockLabel = L.clock_brasil;
+  window._langDays = L.days;
+  window._langMonths = L.months;
+
+  // Install banner
+  var instTitle = document.querySelectorAll('#install-ios .inst-title, #install-android .inst-title');
+  instTitle.forEach(function(el){ el.textContent = L.install_title; });
+  var iosSub = document.querySelector('#install-ios .inst-sub');
+  if(iosSub) iosSub.innerHTML = L.install_ios_sub;
+  var andSub = document.querySelector('#install-android .inst-sub');
+  if(andSub) andSub.innerHTML = L.install_android_sub;
+  var andBtn = document.getElementById('install-android-btn');
+  if(andBtn) andBtn.textContent = L.install_btn;
+}
+
+// Override showTourDetail to use Spanish when needed
+var _origShowTour = showTourDetail;
+showTourDetail = function(id) {
+  if(currentLang === 'es' && TOURS_ES[id]) {
+    var t2 = TOURS_ES[id];
+    var h = '<div class="detail-hero"><div class="detail-date">' + t2.date + '</div><div class="detail-title">' + t2.title + '</div>';
+    h += t2.fotosOk
+      ? '<span style="background:rgba(255,255,255,0.2);border-radius:10px;font-size:12px;font-weight:600;padding:4px 12px;">📸 ' + t2.fotos + '</span>'
+      : '<span style="background:rgba(220,50,50,0.35);border-radius:10px;font-size:12px;font-weight:600;padding:4px 12px;">🚫 ' + t2.fotos + '</span>';
+    h += '</div>';
+    h += '<div class="detail-section"><div class="detail-label">Ubicación</div><div class="detail-text" style="white-space:pre-line;margin-bottom:10px;">' + t2.loc + '</div><a href="' + t2.maps + '" target="_blank" style="font-size:13px;font-weight:600;color:#0076CE;">📍 Abrir en Maps ›</a></div>';
+    h += '<div class="detail-section"><div class="detail-label">Descripción del tour</div>';
+    t2.body.forEach(function(b){
+      if(b.t==='text') h+='<div class="detail-text">'+b.v+'</div>';
+      else if(b.t==='sublabel') h+='<div class="detail-sub-label">'+b.v+'</div>';
+      else if(b.t==='bullet') h+='<div class="detail-bullet">'+b.v+'</div>';
+      else if(b.t==='warn') h+='<div class="warn-banner">'+b.v+'</div>';
+    });
+    h += '</div>';
+    document.getElementById('detailView').innerHTML = h;
+    showDetail(t2.short);
+  } else {
+    _origShowTour(id);
+  }
+};
+
+var _origShowRest = showRestaurant;
+showRestaurant = function(id) {
+  if(currentLang === 'es' && RESTAURANTS_ES[id]) {
+    var r = RESTAURANTS_ES[id];
+    var h = '<div style="background:#0076CE;padding:20px 20px 24px;color:#fff;">';
+    h += '<div style="font-size:11px;opacity:0.75;margin-bottom:4px;">'+r.when+'</div>';
+    h += '<div style="font-size:28px;margin-bottom:4px;">'+r.emoji+'</div>';
+    h += '<div style="font-size:22px;font-weight:700;margin-bottom:4px;">'+r.name+'</div>';
+    h += '<div style="font-size:12px;opacity:0.8;background:rgba(255,255,255,0.18);border-radius:10px;display:inline-block;padding:3px 10px;">'+r.tag+'</div>';
+    h += '</div>';
+    h += '<div class="detail-section"><div class="detail-label">Ubicación</div><div class="detail-text" style="margin-bottom:10px;">'+r.addr+'</div><a href="'+r.maps+'" target="_blank" style="font-size:13px;font-weight:600;color:#0076CE;">📍 Abrir en Maps ›</a></div>';
+    h += '<div class="detail-section"><div class="detail-label">Sobre el restaurante</div><div class="detail-text">'+r.desc+'</div></div>';
+    h += '<div class="detail-section"><div class="detail-label">Destacados</div>';
+    r.highlights.forEach(function(x){ h+='<div class="detail-bullet">'+x+'</div>'; });
+    h += '</div>';
+    if(r.website) h += '<div class="detail-section"><a class="rest-website-btn" href="'+r.website+'" target="_blank">🌐 Ver sitio oficial ›</a></div>';
+    document.getElementById('detailView').innerHTML = h;
+    showDetail(r.name);
+  } else {
+    _origShowRest(id);
+  }
+};
+
+var _origShowPerson = showPersonDetail;
+showPersonDetail = function(id) {
+  if(currentLang === 'es' && PEOPLE_ES[id]) {
+    var p = PEOPLE_ES[id];
+    var imgStyle = 'width:70px;height:70px;border-radius:50%;object-fit:cover;object-position:center 20%;border:2px solid rgba(255,255,255,0.3);flex-shrink:0;';
+    var photoEl;
+    if(p.img && p.img2) {
+      photoEl = '<div style="display:flex;gap:6px;flex-shrink:0;"><img src="'+p.img+'" style="'+imgStyle+'" alt="'+p.name+'"><img src="'+p.img2+'" style="'+imgStyle+'" alt="David Schmidt"></div>';
+    } else if(p.img) {
+      photoEl = '<img src="'+p.img+'" style="'+imgStyle+'" alt="'+p.name+'">';
+    } else {
+      photoEl = '<div style="width:70px;height:70px;border-radius:50%;background:#0076CE;border:2px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;">'+p.initials+'</div>';
+    }
+    var h = '<div style="background:#0076CE;padding:24px 20px;color:#fff;display:flex;gap:16px;align-items:flex-start;">';
+    h += photoEl;
+    h += '<div><div style="font-size:21px;font-weight:700;margin-bottom:5px;">'+p.name+'</div><div style="font-size:13px;opacity:0.85;line-height:1.4;">'+p.role+'</div></div>';
+    h += '</div>';
+    h += '<div class="detail-section"><div class="detail-label">Biografía</div>';
+    p.bio.forEach(function(b){ h+='<div class="detail-text">'+b+'</div>'; });
+    h += '</div>';
+    h += '<div class="detail-section" style="display:flex;gap:10px;flex-wrap:wrap;">';
+    h += '<a class="linkedin-btn" href="'+p.linkedin+'" target="_blank">in&nbsp; '+(p.linkedin2 ? 'LinkedIn Armando Acosta' : 'Ver perfil en LinkedIn')+'</a>';
+    if(p.linkedin2) h += '<a class="linkedin-btn" href="'+p.linkedin2+'" target="_blank">in&nbsp; LinkedIn David Schmidt</a>';
+    h += '</div>';
+    document.getElementById('detailView').innerHTML = h;
+    showDetail(p.name);
+  } else {
+    _origShowPerson(id);
+  }
+};
+
+// Check saved language on load
+window.addEventListener('DOMContentLoaded', function() {
+  var saved = localStorage.getItem('presstrip_lang');
+  if(saved) {
+    setLang(saved);
+  }
+  // else lang picker shows automatically
+});
 </script>
 </body>
 </html>
