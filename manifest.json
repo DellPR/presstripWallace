@@ -1,0 +1,14 @@
+{
+  "name": "Dell Austin Press Tour 2026",
+  "short_name": "Press Tour",
+  "description": "Dell Technologies Austin Press Tour — Guia oficial",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0076CE",
+  "theme_color": "#0076CE",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "app-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "app-icon.png", "sizes": "192x192", "type": "image/png" }
+  ]
+}
