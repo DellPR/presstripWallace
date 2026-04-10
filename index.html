@@ -1570,7 +1570,7 @@ window._applyLang = function(lang) {
   // Tour badges in list
   var tourBadges = document.querySelectorAll('.tc-badge');
   // photo badges: yes, lim, no, yes, yes, yes (in order)
-  var photoBadgeMap = [L.badge_photo_yes, L.badge_photo_lim, L.badge_photo_no, L.badge_photo_yes, L.badge_photo_yes, L.badge_photo_yes];
+  var photoBadgeMap = [L.badge_photo_yes, L.badge_photo_lim, L.badge_photo_yes, L.badge_photo_yes, L.badge_photo_yes];
   document.querySelectorAll('.badge-photo').forEach(function(el,i){ el.textContent = photoBadgeMap[i] || L.badge_photo_yes; });
   document.querySelectorAll('.badge-nophoto').forEach(function(el){ el.textContent = L.badge_photo_no; });
 
